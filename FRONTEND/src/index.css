@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/* Base styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.18);
+}
+
+
+
+
+
