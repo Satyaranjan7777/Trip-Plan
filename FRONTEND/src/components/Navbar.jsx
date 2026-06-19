@@ -1,13 +1,16 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 
 import { AuthContext } from '../context/AuthContext'
 import toast from 'react-hot-toast'
 
 
+
 const Navbar = () => {
   const { user, setUser } = useContext(AuthContext)
+  const location = useLocation()
   const navigate = useNavigate()
+
 
   const onLogout = () => {
     localStorage.removeItem('token')
@@ -49,7 +52,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          {user ? (
+          {/* If user is already logged in, hide Logout button on auth public pages */}
+          {user && !['/login', '/register'].includes(location.pathname) ? (
             <button
               onClick={onLogout}
               className="rounded-lg bg-gray-900 px-3 py-1.5 text-sm text-white hover:bg-gray-800"
@@ -73,6 +77,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
+
       </div>
     </nav>
   )
