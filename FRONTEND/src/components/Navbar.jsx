@@ -1,7 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
+
 import { AuthContext } from '../context/AuthContext'
 import toast from 'react-hot-toast'
+
 
 const Navbar = () => {
   const { user, setUser } = useContext(AuthContext)
@@ -22,12 +24,27 @@ const Navbar = () => {
             Trrip-AI
           </Link>
           <div className="hidden items-center gap-4 md:flex">
-            <Link to="/dashboard" className="text-gray-700 hover:text-indigo-600">
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? 'font-semibold text-indigo-700'
+                  : 'text-gray-700 hover:text-indigo-600'
+              }
+              end
+            >
               Dashboard
-            </Link>
-            <Link to="/history" className="text-gray-700 hover:text-indigo-600">
+            </NavLink>
+            <NavLink
+              to="/history"
+              className={({ isActive }) =>
+                isActive
+                  ? 'font-semibold text-indigo-700'
+                  : 'text-gray-700 hover:text-indigo-600'
+              }
+            >
               History
-            </Link>
+            </NavLink>
           </div>
         </div>
 

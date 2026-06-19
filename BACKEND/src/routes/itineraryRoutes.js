@@ -22,8 +22,11 @@ router.get('/itinerary/:id', authMiddleware, getItineraryById)
 // GET /api/itinerary/share/:shareToken (PUBLIC)
 router.get('/itinerary/share/:shareToken', getSharedItinerary)
 
+// DELETE /api/itinerary/:id (protected)
+router.delete('/itinerary/:id', authMiddleware, require('../controllers/itineraryController').deleteItinerary)
 
 module.exports = router
+
 
 
 

@@ -29,7 +29,13 @@ const History = () => {
       {items.length ? (
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it) => (
-            <ItineraryCard key={it._id || it.id} itinerary={it} />
+            <ItineraryCard
+              key={it._id || it.id}
+              itinerary={it}
+              onDelete={async () => {
+                // delete handled by page to keep card dumb
+              }}
+            />
           ))}
         </div>
       ) : null}

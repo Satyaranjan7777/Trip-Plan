@@ -75,11 +75,25 @@ const getSharedItinerary = async (req, res) => {
   }
 }
 
+const deleteItinerary = async (req, res) => {
+  try {
+    const deleted = await Itinerary.findOneAndDelete({ _id: req.params.id, userId: req.user._id })
+    if (!deleted) return res.status(404).json({ message: 'Itinerary not found' })
+    return res.json({ message: 'Itinerary deleted' })
+  } catch (e) {
+    return res.status(500).json({ message: 'Failed to delete itinerary' })
+  }
+}
+
 module.exports = {
   generateItinerary,
   getItineraryById,
   getMyItineraries,
   getSharedItinerary,
+  deleteItinerary,
 }
+
+
+
 
 

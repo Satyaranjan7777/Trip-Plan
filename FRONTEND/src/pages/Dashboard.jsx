@@ -58,6 +58,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-[calc(100vh-64px)] bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <div className="mx-auto w-full max-w-6xl px-4 py-8">
+
         {/* Header / Hero */}
         <div className="rounded-2xl border border-white/70 bg-white/70 backdrop-blur shadow-sm">
           <div className="flex flex-col gap-6 p-6 md:flex-row md:items-center md:justify-between">

@@ -23,7 +23,12 @@ app.use('/api/auth', authRoutes)
 // Strict API: /api/upload and /api/itinerary/*
 app.use('/api', itineraryRoutes)
 
+// error handler
+const { errorHandler } = require('./src/middleware/errorHandler')
+app.use(errorHandler)
+
 const PORT = process.env.PORT || 5000
+
 
 connectDB()
   .then(() => {
